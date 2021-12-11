@@ -21,7 +21,7 @@ export class ThirdFactorComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.http.post("http://localhost:8080/thirdfactor", null).subscribe((result:any)=>{
+    this.http.post("https://csci5410-g11.herokuapp.com/thirdfactor", null).subscribe((result:any)=>{
       if(result.status){
         this.cipherValue = result.data.cipherValue;
         this.cipherAnswer = result.data.cipherAnswer;

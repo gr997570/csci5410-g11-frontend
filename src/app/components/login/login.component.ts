@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
                   email: this.loginForm.controls['email'].value,
                   password: this.loginForm.controls['password'].value,
                 }
-    this.http.post("http://localhost:8080/login", user).subscribe((result:any)=>{
+    this.http.post("https://csci5410-g11.herokuapp.com/login", user).subscribe((result:any)=>{
       if(result.status){
         this.success = true;
         this.dataservice.setLoggedInUser(result)
@@ -42,36 +42,6 @@ export class LoginComponent implements OnInit {
     }, (error: any)=>{
       this.loginForm.controls['email'].setErrors({incorrect: true})
       this.loginForm.controls['password'].setErrors({incorrect: true})
-    });
-  }
-
-  updateStatus(){
-    let user = {
-      email: this.loginForm.controls['email'].value
-    }
-    this.http.post("https://container2-mh3q2uauuq-ue.a.run.app/logout", user).subscribe((result:any)=>{
-      if(result.status){
-        this.success = false;
-      }
-      else{
-        this.success = true;
-      }
-    });
-  }
-
-  getOnlineUsers(){
-    let user = {
-      email: this.loginForm.controls['email'].value
-    }
-    this.http.post("https://container3-mh3q2uauuq-ue.a.run.app/login", user).subscribe((result:any)=>{
-      if(result.status){
-        this.data = result.data;
-        console.log(this.data);
-        this.success = true;
-      }
-      else{
-        this.success = false;
-      }
     });
   }
 

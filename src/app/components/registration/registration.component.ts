@@ -47,7 +47,7 @@ export class RegistrationComponent implements OnInit {
                   question: this.loginForm.controls['question'].value,
                   answer: this.loginForm.controls['answer'].value
                 }
-    this.http.post("http://localhost:8080/register", user).subscribe((result:any)=>{
+    this.http.post("https://csci5410-g11.herokuapp.com/register", user).subscribe((result:any)=>{
       if(result.success){
         this.success = true;
         this.loginForm.resetForm();
