@@ -1,0 +1,24 @@
+<div style="padding: 0 16px;margin: 30px 30% 32px;width: 36vw;">
+    <div>
+      <form [formGroup]="loginForm" style="padding: 20px;" (ngSubmit)="onSubmit()">
+        <div>
+            <select id="question" name="question" formControlName="question" placeholder="Security Question" style="width:32vw;line-height:25px; border-radius: 4px; font-weight: 700;border-color: #B4BCAF;">
+            <option value="" disabled selected>Select a security question</option>
+            <option>What is the name of your pet?</option>
+            <option>What is the your age?</option>
+            <option>What is the name of your city?</option>
+            </select>
+          </div>
+          <br>
+          <div>
+            <input type="input" id="answer" name="answer" formControlName="answer" placeholder="Security Answer" style="width:32vw;line-height:25px; border-radius: 4px; font-weight: 700;border-color: #B4BCAF;"/>
+            <div *ngIf="(loginForm.get('answer').invalid && (loginForm.get('answer').touched) || loginForm.get('answer').dirty)">
+              <small *ngIf="loginForm.controls['answer'].errors?.required" style="color: red;">Answer is required</small><br>
+              <small *ngIf="loginForm.controls['answer'].errors?.invalid" style="color: red;">Authentication failed</small><br>
+            </div>
+          </div>
+        <br>
+        <button type="Submit" [disabled]="!loginForm.valid" style="background-color:#1976D2;color:aliceblue;border-radius:4px;line-height:25px;text-align:center;cursor:pointer;margin: 10px 0px;">Next</button>
+      </form>
+    </div>
+  </div>
