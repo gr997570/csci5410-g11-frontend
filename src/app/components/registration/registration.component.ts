@@ -50,7 +50,7 @@ export class RegistrationComponent implements OnInit {
     this.http.post("https://csci5410-g11.herokuapp.com/register", user).subscribe((result:any)=>{
       if(result.success){
         this.success = true;
-        this.loginForm.resetForm();
+        alert("Registration Successful")
       }
       else{
         this.success = false;
@@ -59,6 +59,10 @@ export class RegistrationComponent implements OnInit {
       this.error = error.error.message;
       this.loginForm.controls['email'].setErrors({duplicate: true});
     });
+  }
+
+  redirectSignup(){
+    this.router.navigate(['/signup']);
   }
 
 }
