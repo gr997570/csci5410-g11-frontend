@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
                   email: this.loginForm.controls['email'].value,
                   password: this.loginForm.controls['password'].value,
                 }
-    this.http.post("https://csci5410-g11.herokuapp.com/login", user).subscribe((result:any)=>{
+    this.http.post("https://us-central1-csci5410-334019.cloudfunctions.net/user/login", user).subscribe((result:any)=>{
       if(result.status){
         this.success = true;
         this.dataservice.setLoggedInUser(result)
