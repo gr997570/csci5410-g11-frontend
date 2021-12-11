@@ -45,8 +45,8 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  redirectLogin(){
-    this.router.navigate(['/login']);
+  redirectSignup(){
+    this.router.navigate(['/signup']);
   }
 
 }
