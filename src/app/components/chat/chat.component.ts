@@ -41,7 +41,7 @@ export class ChatComponent implements OnInit {
       email: this.user.email,
       boxnumber: this.user.boxid
     }
-    this.http.get("https://csci5410-g11.herokuapp.com/chat/"+user.email+"/"+user.boxnumber).subscribe((result:any)=>{
+    this.http.get("https://us-central1-csci5410-334019.cloudfunctions.net/chat/chat/"+user.email+"/"+user.boxnumber).subscribe((result:any)=>{
       if(result.status){
         this.users = result.data;
         console.log(this.users);
@@ -53,7 +53,7 @@ export class ChatComponent implements OnInit {
     let user = {
       email: this.user.email
     }
-    this.http.post("https://csci5410-g11.herokuapp.com/", user).subscribe((result:any)=>{
+    this.http.post("https://us-central1-csci5410-334019.cloudfunctions.net/chat/", user).subscribe((result:any)=>{
       if(result.status){
         this.messages.push(result.data)
       }
@@ -69,7 +69,7 @@ export class ChatComponent implements OnInit {
       sender: this.user.email,
       receiver: this.chatForm.controls['user'].value,
     }
-    this.http.post("https://csci5410-g11.herokuapp.com/chats/", message).subscribe((result:any)=>{
+    this.http.post("https://us-central1-csci5410-334019.cloudfunctions.net/chat/chats/", message).subscribe((result:any)=>{
       if(result.status){
         console.log(result);
       }
@@ -95,7 +95,7 @@ export class ChatComponent implements OnInit {
         console.log(this.currentFile)
         formData.append('file', this.currentFile);
         formData.append('sender', this.user.email)
-        this.http.post("https://csci5410-g11.herokuapp.com/upload", formData).subscribe((result:any)=>{
+        this.http.post("https://us-central1-csci5410-334019.cloudfunctions.net/upload/upload", formData).subscribe((result:any)=>{
           if(!result.status){
             this.isUploadValid = false;
           }
