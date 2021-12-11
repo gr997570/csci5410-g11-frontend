@@ -72,6 +72,10 @@ export class ChatComponent implements OnInit {
     this.http.post("https://us-central1-csci5410-334019.cloudfunctions.net/chat/chats/", message).subscribe((result:any)=>{
       if(result.status){
         console.log(result);
+        alert("Message sent!")
+      }
+      else{
+        alert("Failed to send message!")
       }
     });
   }
