@@ -1,0 +1,61 @@
+<div style="padding: 0 16px;margin: 30px 30% 32px;width: 36vw;">
+  <div>
+    <form [formGroup]="loginForm" style="padding: 20px;" (ngSubmit)="onSubmit()">
+      <div>
+        <label id="boxid" name="boxid" style="width:32vw;line-height:25px; border-radius: 4px; font-weight: 700;border-color: #B4BCAF;">
+          Safe deposit box number: {{boxid}}
+        </label>
+        <button type="button" style="background-color:#1976D2;color:aliceblue;border-radius:4px;line-height:25px;text-align:center;cursor:pointer;margin: 10px 0px;" (click)=generateBoxid()>Generate new box number</button>
+      </div>
+      <div>
+        <input type="text" id="name" name="name" formControlName="name" placeholder="Name" style="width:32vw;line-height:25px; border-radius: 4px; font-weight: 700;border-color: #B4BCAF;"/>
+        <div *ngIf="(loginForm.get('name').invalid && (loginForm.get('name').touched) || loginForm.get('name').dirty)">
+          <small *ngIf="loginForm.controls['name'].errors?.required" style="color: red;">Name is required</small><br>
+          <small *ngIf="loginForm.controls['name'].errors?.pattern" style="color: red;">Name must be alpabetical.</small>
+        </div>
+      </div>
+      <br>
+      <br>
+      <div>
+        <input type="text" id="email" name="email" formControlName="email" placeholder="Email Id" style="width:32vw;line-height:25px; border-radius: 4px; font-weight: 700;border-color: #B4BCAF;"/>
+        <div *ngIf="(loginForm.get('email').invalid && (loginForm.get('email').touched) || loginForm.get('email').dirty)">
+          <small *ngIf="loginForm.controls['email'].errors?.required" style="color: red;">Email is equired</small><br>
+          <small *ngIf="loginForm.controls['email'].errors?.pattern" style="color: red;">Invalid email</small>
+          <small *ngIf="loginForm.controls['email'].errors?.incorrect" style="color: red;">Invalid email</small>
+          <small *ngIf="loginForm.controls['email'].errors?.duplicate" style="color: red;">{{error}}</small>
+        </div>
+      </div>
+      <br>
+      <br>
+      <div>
+        <input type="password" id="password" name="password" formControlName="password" placeholder="Password" style="width:32vw;line-height:25px; border-radius: 4px; font-weight: 700;border-color: #B4BCAF;"/>
+        <div *ngIf="(loginForm.get('password').invalid && (loginForm.get('password').touched) || loginForm.get('password').dirty)">
+          <small *ngIf="loginForm.controls['password'].errors?.required" style="color: red;">Password is required</small><br>
+          <small *ngIf="loginForm.controls['password'].errors?.minlength" style="color: red;">Password must be of 8 characters in length</small><br>
+          <small *ngIf="loginForm.controls['password'].errors?.pattern" style="color: red;">Password doesn't match the criteria</small>
+        </div>
+      </div>
+      <br>
+      <div>
+        <select id="question" name="question" formControlName="question" placeholder="Security Question" style="width:32vw;line-height:40px; border-radius: 4px; font-weight: 700;border-color: #B4BCAF;">
+        <option value="" disabled selected>Select a security question</option>
+        <option>What is the name of your pet?</option>
+        <option>What is the your age?</option>
+        <option>What is the name of your city?</option>
+        </select>
+      </div>
+      <br>
+      <div>
+        <input type="input" id="answer" name="answer" formControlName="answer" placeholder="Security Answer" style="width:32vw;line-height:25px; border-radius: 4px; font-weight: 700;border-color: #B4BCAF;"/>
+        <div *ngIf="(loginForm.get('answer').invalid && (loginForm.get('answer').touched) || loginForm.get('answer').dirty)">
+          <small *ngIf="loginForm.controls['answer'].errors?.required" style="color: red;">Answer is required</small><br>
+        </div>
+      </div>
+        <br>
+      <button [disabled]="!loginForm.valid" style="background-color:#1976D2;color:aliceblue;border-radius:4px;line-height:25px;text-align:center;cursor:pointer;margin: 10px 0px;">Register</button>
+    </form>
+  </div>
+</div>
+<div *ngIf="success" style="margin: 10px;">
+  <h3>Registration successful!</h3>
+</div>

@@ -1,0 +1,19 @@
+<div style="padding: 0 16px;margin: 30px 30% 32px;width: 36vw;">
+    <div>
+      <form [formGroup]="loginForm" style="padding: 20px;" (ngSubmit)="onSubmit()">
+        <h4>Cypher to encrypt: {{cipherValue}}</h4>
+        <h4>(Key: A+5 = F, a+5=f) </h4>
+        <h4>(Uppercase should be replaced by uppercase and same for lowerecase characters))</h4>
+        <br>
+        <div>
+            <input type="input" id="answer" name="answer" formControlName="answer" placeholder="Cipher Answer" style="width:32vw;line-height:25px; border-radius: 4px; font-weight: 700;border-color: #B4BCAF;"/>
+            <div *ngIf="(loginForm.get('answer').invalid && (loginForm.get('answer').touched) || loginForm.get('answer').dirty)">
+              <small *ngIf="loginForm.controls['answer'].errors?.required" style="color: red;">Answer is required</small><br>
+              <small *ngIf="loginForm.controls['answer'].invalid?.required" style="color: red;">Answer is invalid</small><br>
+            </div>
+        </div>
+        <br>
+        <button type="Submit" [disabled]="!loginForm.valid" style="background-color:#1976D2;color:aliceblue;border-radius:4px;line-height:25px;text-align:center;cursor:pointer;margin: 10px 0px;">Login</button>
+      </form>
+    </div>
+  </div>
