@@ -53,7 +53,7 @@ export class ChatComponent implements OnInit {
     let user = {
       email: this.user.email
     }
-    this.http.post("https://us-central1-csci5410-334019.cloudfunctions.net/chat", user).subscribe((result:any)=>{
+    this.http.post("https://us-central1-csci5410-334019.cloudfunctions.net/chat/chat", user).subscribe((result:any)=>{
       if(result.status){
         this.messages.push(result.data)
       }
