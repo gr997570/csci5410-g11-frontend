@@ -27,6 +27,6 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
 ## Contributors
-Kishan Kahodariya - Authentication module with caesar cipher and visualization
-Yashvi Lad - Machine Learning Module
-Gurleen Kaur Saluja - Messaging and web application development & deployment and integration
+- Kishan Kahodariya - Authentication module with caesar cipher and visualization
+- Yashvi Lad - Machine Learning Module
+- Gurleen Kaur Saluja - Messaging and web application development & deployment and integration
