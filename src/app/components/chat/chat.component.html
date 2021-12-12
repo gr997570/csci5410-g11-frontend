@@ -17,7 +17,7 @@
           <input type="text" id="chatmessage" name="chatmessage" formControlName="chatmessage" placeholder="Enter message" style="width:32vw;line-height:25px; border-radius: 4px; font-weight: 700;border-color: #B4BCAF;"/>
         </div>
         <br>
-        <form [formGroup]="uploadForm" style="padding: 20px;" (ngSubmit)="upload()">
+        <form [formGroup]="uploadForm" (ngSubmit)="upload()">
           <div>
             <label class="btn btn-default p-0">
               <input type="file" (change)="selectFile($event)" id="fileupload" formControlName="fileupload" name="fileupload" style="width:32vw;line-height:25px; border-radius: 4px; font-weight: 700;border-color: #B4BCAF;"/>
